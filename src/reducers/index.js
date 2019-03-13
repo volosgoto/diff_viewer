@@ -3,5 +3,6 @@ import rightReducer from "./rightReducer";
 import leftReducer from "./leftReducer";
 
 export default combineReducers({
-  leftList: leftReducer
+  leftList: leftReducer,
+  rightList: rightReducer
 });
