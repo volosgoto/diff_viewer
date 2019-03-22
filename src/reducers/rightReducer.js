@@ -1,15 +1,14 @@
-import { GET_RIGHT_LIST } from "../actions/types";
-
+// import { GET_RIGHT_LIST } from "../actions/types";
 const initialState = {
-  rightList: [],
-  rightList: {}
+  item: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_RIGHT_LIST:
+    case "SHOW_INFO":
       return {
-        ...state
+        ...state,
+        item: !state.item
       };
 
     default:

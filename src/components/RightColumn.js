@@ -1,21 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class RightColumn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      item: false
-    };
-  }
-
   onClick = () => {
-    return this.setState({
-      item: !this.state.item
-    });
+    console.log("Clicked");
+    this.props.showInfo();
   };
 
   render() {
-    let { item } = this.state;
+    let { item } = this.props.rightListItem;
+    console.log("right", this.props);
     return (
       <div className="col-sm-6">
         <h1 onClick={this.onClick}>Right column</h1>
@@ -25,4 +19,15 @@ class RightColumn extends Component {
   }
 }
 
-export default RightColumn;
+const mapStateToProps = state => ({
+  rightListItem: state.rightListItem
+});
+
+export default connect(
+  mapStateToProps,
+  dispatch => ({
+    showInfo: () => {
+      dispatch({ type: "SHOW_INFO" });
+    }
+  })
+)(RightColumn);
