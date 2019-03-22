@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import LeftColumn from "./components/LeftColumn";
+import RightColumn from "./components/RightColumn";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -11,7 +13,13 @@ class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          <h1>Test</h1>
+          <div className="container-fluid">
+            <div className="row">
+              <LeftColumn />
+              <RightColumn />
+            </div>
+            <br />
+          </div>
         </Provider>
       </div>
     );
